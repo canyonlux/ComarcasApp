@@ -1,4 +1,5 @@
 import 'package:comarques_app/comarca.dart';
+import 'package:comarques_app/weather_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,19 @@ class ComarcaDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(comarca.comarca),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.wb_sunny),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WeatherScreen(latitud: comarca.coordenades[0], longitud: comarca.coordenades[1]),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
