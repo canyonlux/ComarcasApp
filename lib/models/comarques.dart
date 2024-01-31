@@ -3,7 +3,7 @@ Map<String, dynamic> provincies = {
     {
       "provincia": "València",
       "img":
-          "https://upload.wikimedia.org/wikipedia/commons/8/8f/2006_-_panoramio_%2868%29.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/RTuria1_Benaguasil.jpg/800px-RTuria1_Benaguasil.jpg",
       "comarques": [
         {
           "comarca": "El Camp de Túria",
