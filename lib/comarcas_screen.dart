@@ -1,3 +1,4 @@
+import 'package:comarques_app/comarca_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'models/comarques.dart'; // Asegúrate de que la ruta del import es correcta
 
@@ -15,21 +16,30 @@ class ComarcasScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: comarcas.length,
         itemBuilder: (context, index) {
-          var comarca = comarcas[index];
-          return Card(
-            child: Column(
-              children: <Widget>[
-                Image.network(comarca['img']),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(comarca['comarca'],
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ComarcaDetailScreen(),
+              ),
+              );
+              },
+            child: Card(
+              child: Column(
+                children: <Widget>[
+                  Image.network(comarcas[index]['img']),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(comarcas[index]['comarca'],
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },
