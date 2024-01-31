@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_screen.dart'; // Asegúrate de que este import es correcto
-import 'provincias_screen.dart'; // Asegúrate de que este import es correcto
+import 'provincias_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // Puedes cambiar esto para decidir cuál pantalla mostrar primero
+
       home: LoginScreen(), // Iniciar con LoginScreen
       routes: {
         '/login': (context) => LoginScreen(),

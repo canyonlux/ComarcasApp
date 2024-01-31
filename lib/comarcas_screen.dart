@@ -1,6 +1,6 @@
 import 'package:comarques_app/comarca_detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'models/comarques.dart'; // Asegúrate de que la ruta del import es correcta
+import 'package:comarques_app/models/comarques.dart';
 
 class ComarcasScreen extends StatelessWidget {
   final List comarcas;
@@ -19,19 +19,27 @@ class ComarcasScreen extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ComarcaDetailScreen(),
-              ),
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ComarcaDetailScreen(),
+                ),
               );
-              },
+            },
             child: Card(
               child: Column(
                 children: <Widget>[
-                  Image.network(comarcas[index]['img']),
+                  Container(
+                    height: 400, // Altura fija para todas las imágenes
+                    width: double.infinity, // El ancho del contenedor es el máximo posible
+                    child: Image.network(
+                      comarcas[index]['img'],
+                      fit: BoxFit.cover, // Esto asegurará que la imagen cubra todo el contenedor
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(comarcas[index]['comarca'],
+                    child: Text(
+                      comarcas[index]['comarca'],
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

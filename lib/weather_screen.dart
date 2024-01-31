@@ -26,7 +26,7 @@ class WeatherScreen extends StatelessWidget {
             Text('Població: 163.975', style: TextStyle(fontSize: 16)),
             Text('Latitud: 38.9675925', style: TextStyle(fontSize: 16)),
             Text('Longitud: -0.1803423', style: TextStyle(fontSize: 16)),
-            // Agregar aquí más Widgets para mostrar la imagen del tiempo y otros datos relevantes.
+
           ],
         ),
       ),
