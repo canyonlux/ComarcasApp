@@ -31,7 +31,7 @@ class WeatherScreen extends StatelessWidget {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
-                    // Aquí puedes añadir la funcionalidad para "La Comarca"
+
                   },
                   child: Text("La Comarca"),
                 ),

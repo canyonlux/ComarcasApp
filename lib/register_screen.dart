@@ -76,8 +76,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   },
                   child: Text('Cancelar'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.red, // Color del botón
-                    fixedSize: Size(150, 50), // Tamaño del botón
+                    primary: Colors.red,
+                    fixedSize: Size(150, 50),
                   ),
                 ),
               ],

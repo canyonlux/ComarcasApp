@@ -13,7 +13,7 @@ class ProvinciasScreen extends StatelessWidget {
 
       ),
       body: ListView.builder(
-        itemCount: provincies['provincies'].length, // Asegúrate de que esta línea accede correctamente a tus datos.
+        itemCount: provincies['provincies'].length, // Número de provincias
         itemBuilder: (context, index) {
           var province = provincies['provincies'][index];
           var comarcaObjects = (province['comarques'] as List).map((comarcaMap) {
@@ -51,7 +51,7 @@ class ProvinciasScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 20), // Espacio entre la imagen y el texto
-                    Expanded( // Usa Expanded para que el texto ocupe el espacio restante.
+                    Expanded( // Para que el texto ocupe todo el espacio posible
                       child: Text(
                         province['provincia'],
                         style: TextStyle(

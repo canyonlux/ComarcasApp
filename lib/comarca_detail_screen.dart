@@ -30,15 +30,15 @@ class ComarcaDetailScreen extends StatelessWidget {
             ),
             Text(comarca.poblacio),
             Text(comarca.desc),
-            // Aquí puedes añadir más Widgets para mostrar las coordenadas y otros detalles.
 
-            // Botones en la parte inferior
+
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 ElevatedButton(
                   onPressed: () {
-                    // Aquí puedes añadir la funcionalidad para "La Comarca"
+
                   },
                   child: Text("La Comarca"),
                 ),

@@ -1,6 +1,6 @@
 import 'package:comarques_app/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'login_screen.dart'; // Asegúrate de que este import es correcto
+import 'login_screen.dart';
 import 'provincias_screen.dart';
 
 void main() {
