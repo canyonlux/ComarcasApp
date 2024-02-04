@@ -1,5 +1,6 @@
 import 'package:comarques_app/comarcas_screen.dart';
 import 'package:flutter/material.dart';
+import 'comarca.dart';
 import 'models/comarques.dart';
 
 class ProvinciasScreen extends StatelessWidget {
@@ -15,19 +16,26 @@ class ProvinciasScreen extends StatelessWidget {
         itemCount: provincies['provincies'].length, // Asegúrate de que esta línea accede correctamente a tus datos.
         itemBuilder: (context, index) {
           var province = provincies['provincies'][index];
-          return InkWell( // Utiliza InkWell para efectos visuales en el tap.
+          var comarcaObjects = (province['comarques'] as List).map((comarcaMap) {
+            return Comarca(
+              comarca: comarcaMap['comarca'],
+              capital: comarcaMap['capital'],
+              poblacio: comarcaMap['poblacio'],
+              img: comarcaMap['img'],
+              desc: comarcaMap['desc'],
+              coordenades: List<double>.from(comarcaMap['coordenades']),
+            );
+          }).toList();
+
+          return InkWell(
             onTap: () {
-              if (province['provincia'] == 'València') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ComarcasScreen(comarcas: province['comarques']),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ComarcasScreen(comarcas: comarcaObjects, provinceName: province['provincia']),
                   ),
                 );
-              } else {
-                // Asegúrate de que la ruta '/comarcas' esté definida en tu MaterialApp y que lleve a la pantalla deseada.
-                Navigator.pushNamed(context, '/comarcas');
-              }
+
             },
             child: Card(
               child: Padding(

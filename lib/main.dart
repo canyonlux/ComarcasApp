@@ -1,3 +1,4 @@
+import 'package:comarques_app/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart'; // Asegúrate de que este import es correcto
 import 'provincias_screen.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
       home: LoginScreen(), // Iniciar con LoginScreen
       routes: {
         '/login': (context) => LoginScreen(),
+        '/register_screen': (context) => RegisterScreen(),
         '/provincias': (context) => ProvinciasScreen (),
       },
     );

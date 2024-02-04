@@ -1,31 +1,21 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  final String initialUsername;
-  final String initialPassword;
+import 'login_screen.dart';
 
-  LoginScreen({Key? key, this.initialUsername = '', this.initialPassword = ''}) : super(key: key);
-
+class RegisterScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  late TextEditingController _usernameController;
-  late TextEditingController _passwordController;
-
-  @override
-  void initState() {
-    super.initState();
-    _usernameController = TextEditingController(text: widget.initialUsername);
-    _passwordController = TextEditingController(text: widget.initialPassword);
-  }
+class _RegisterScreenState extends State<RegisterScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Les comarques de la comunitat'),
+        title: Text('Registro'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -33,13 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Image.asset(
-              'assets/logo.png',
-              height: 120,
-            ),
-            SizedBox(height: 20),
             Text(
-              'Les comarques de la comunitat',
+              'Registro',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
@@ -50,9 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFormField(
               controller: _usernameController,
               decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                labelText: 'Usuario',
+                labelText: 'Nombre de usuario',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -60,8 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFormField(
               controller: _passwordController,
               decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
                 labelText: 'Contraseña',
                 border: OutlineInputBorder(),
               ),
@@ -73,22 +54,30 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/provincias');
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(
+                          initialUsername: _usernameController.text,
+                          initialPassword: _passwordController.text,
+                        ),
+                      ),
+                    );
                   },
-                  child: Text('Login'),
+                  child: Text('Registrar'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    fixedSize: Size(150, 50),
+                    primary: Colors.blue, // Color del botón
+                    fixedSize: Size(150, 50), // Tamaño del botón
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/register_screen');
+                    Navigator.pop(context); // Para cerrar la pantalla de registro
                   },
-                  child: Text('Registrar'),
+                  child: Text('Cancelar'),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
-                    fixedSize: Size(150, 50),
+                    primary: Colors.red, // Color del botón
+                    fixedSize: Size(150, 50), // Tamaño del botón
                   ),
                 ),
               ],

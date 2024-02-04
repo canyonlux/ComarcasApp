@@ -9,8 +9,6 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Aquí iría la lógica para obtener y mostrar la información del tiempo
-    // usando latitud y longitud. Por ahora, utilizaremos datos estáticos como ejemplo.
     return Scaffold(
       appBar: AppBar(
         title: Text('Tiempo en La Safor'),
@@ -20,13 +18,31 @@ class WeatherScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset('assets/clima.jpg'), // Añade la imagen desde assets
-            SizedBox(height: 20), // Espacio entre la imagen y el texto
+            SizedBox(height: 20),
             Text('5.4º', style: TextStyle(fontSize: 64)),
             Text('9.4km/h Ponent', style: TextStyle(fontSize: 24)),
             Text('Població: 163.975', style: TextStyle(fontSize: 16)),
             Text('Latitud: 38.9675925', style: TextStyle(fontSize: 16)),
             Text('Longitud: -0.1803423', style: TextStyle(fontSize: 16)),
 
+            // Botones en la parte inferior
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {
+                    // Aquí puedes añadir la funcionalidad para "La Comarca"
+                  },
+                  child: Text("La Comarca"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context); // Este botón ahora volverá a la pantalla anterior
+                  },
+                  child: Icon(Icons.sunny),
+                ),
+              ],
+            ),
           ],
         ),
       ),
